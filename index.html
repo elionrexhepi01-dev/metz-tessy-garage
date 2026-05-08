@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>METZ-TESSY Garage | Expertise Automobile</title>
+    <title>
+      Garage Automobile à Metz-Tessy | Entretien & Réparation Auto près d’Annecy
+    </title>
+
+    <meta
+      name="description"
+      content="Garage automobile à Metz-Tessy près d’Annecy : entretien, réparation, diagnostic et mécanique toutes marques. Service professionnel et transparent."
+    />
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -34,40 +41,23 @@
     </script>
 
     <style type="text/css">
-      /* 1. Reset & Base */
       body {
         background-color: #0b0f14;
         color: #f1f5f9;
         font-family: "Inter", sans-serif;
         overflow-x: hidden;
-        /* cursor: none;  */
       }
 
-      /* 2. Custom Cursor */
-      /* #cursor-dot {
-        width: 8px;
-        height: 8px;
-        background-color: #22d3ee;
-        position: fixed;
-        border-radius: 50%;
-        z-index: 10000;
-        pointer-events: none;
-        transition: transform 0.1s ease;
-      } */
-
-      /* 3. Glassmorphism */
       .glass-panel {
         background: rgba(18, 26, 35, 0.6);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        /* border: 1px solid rgba(255, 255, 255, 0.05); */
       }
       .glass-card:hover {
         border-color: rgba(34, 211, 238, 0.4);
         box-shadow: 0 0 25px rgba(34, 211, 238, 0.1);
       }
 
-      /* 4. Navbar Active Underline */
       .nav-underline {
         height: 2px;
         background-color: #22d3ee;
@@ -78,7 +68,6 @@
         pointer-events: none;
       }
 
-      /* 5. Scroll Reveal */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -89,22 +78,10 @@
         transform: translateY(0);
       }
 
-      /* 6. FAQ Accordion Height */
       .faq-content {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-out;
-      }
-
-      /* Hide cursor on mobile/touch */
-      @media (hover: none) and (pointer: coarse) {
-        #cursor-dot,
-        #cursor-glow {
-          display: none;
-        }
-        body {
-          cursor: auto;
-        }
       }
 
       ::-webkit-scrollbar {
@@ -139,11 +116,179 @@
       .logo-glow:hover::after {
         width: 100%;
       }
+
+      #cursor {
+        display: inline-block;
+        margin-left: 4px;
+        animation: blink 2s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50%,
+        100% {
+          opacity: 1;
+        }
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+
+      .scroll-line {
+        width: 1px;
+        height: 40px;
+        background: rgba(34, 211, 238, 0.9);
+        animation: scrollLine 2s infinite;
+      }
+
+      @keyframes scrollLine {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+      }
+
+      .card-line.scroll-active {
+        width: 100%;
+      }
+
+      .fade-text {
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .fade-text.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-panel {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease,
+          background-color 0.25s ease;
+      }
+
+      .faq-active {
+        border-color: rgba(34, 211, 238, 0.45);
+        box-shadow: 0 0 20px rgba(34, 211, 238, 0.08);
+      }
+
+      .faq-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .faq-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-item {
+        opacity: 0;
+        transform: translateY(25px);
+
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease,
+          border-color 0.7s ease;
+
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-item.active {
+        opacity: 1;
+        transform: translateY(0);
+
+        border-color: rgba(34, 211, 238, 0.25);
+      }
+
+      .contact-item::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        border: 1px solid rgba(34, 211, 238, 0.5);
+
+        transform: scaleX(0);
+
+        transform-origin: left;
+
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+        pointer-events: none;
+      }
+
+      .contact-item.active::before {
+        transform: scaleX(1);
+      }
+
+      .mobile-link {
+        position: relative;
+        z-index: 60;
+      }
+
+      #menu-btn .bar {
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: white;
+        transition: all 0.3s ease;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* positions */
+      #menu-btn .top {
+        top: 12px;
+      }
+      #menu-btn .middle {
+        top: 18px;
+      }
+      #menu-btn .bottom {
+        top: 24px;
+      }
+
+      /* OPEN STATE */
+      #menu-btn.open .top {
+        top: 18px;
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      #menu-btn.open .middle {
+        opacity: 0;
+      }
+
+      #menu-btn.open .bottom {
+        top: 18px;
+        transform: translateX(-50%) rotate(-45deg);
+      }
     </style>
   </head>
   <body class="antialiased">
     <nav
       id="navbar"
+      style="opacity: 0"
       class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12"
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -193,10 +338,11 @@
 
         <button
           id="menu-btn"
-          class="lg:hidden flex flex-col space-y-1.5 z-[60]"
+          class="lg:hidden relative w-10 h-10 z-[60] flex items-center justify-center"
         >
-          <span class="w-6 h-0.5 bg-white"></span>
-          <span class="w-6 h-0.5 bg-white"></span>
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
         </button>
       </div>
     </nav>
@@ -205,12 +351,12 @@
       id="mobile-overlay"
       class="fixed inset-0 bg-darkBg z-[55] translate-x-full transition-transform duration-500 flex flex-col items-center justify-center space-y-8 font-heading text-2xl uppercase tracking-widest"
     >
-      <a href="#hero" class="mobile-link">Accueil</a>
-      <a href="#services" class="mobile-link">Services</a>
-      <a href="#prices" class="mobile-link">Tarifs</a>
-      <a href="#about" class="mobile-link">À propos</a>
-      <a href="#faq" class="mobile-link">FAQ</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#hero" class="mobile-link pointer-events-auto">Accueil</a>
+      <a href="#services" class="mobile-link pointer-events-auto">Services</a>
+      <a href="#prices" class="mobile-link pointer-events-auto">Tarifs</a>
+      <a href="#about" class="mobile-link pointer-events-auto">À propos</a>
+      <a href="#faq" class="mobile-link pointer-events-auto">FAQ</a>
+      <a href="#contact" class="mobile-link pointer-events-auto">Contact</a>
     </div>
 
     <section
@@ -225,16 +371,19 @@
         style="opacity: 0"
       >
         <h1
-          class="font-heading text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-none uppercase"
+          class="font-heading text-4xl md:text-7xl font-black mb-6 tracking-tighter leading-none uppercase"
         >
           Expertise <br />
-          <span class="text-cyanAccent">Automobile</span>
+          <span class="text-cyanAccent">
+            <span id="typed-text"></span><span id="cursor">|</span>
+          </span>
         </h1>
         <p
           class="text-slate-400 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Solutions haut de gamme pour l’entretien et la performance de votre
-          véhicule à Metz-Tessy. Précision technique, transparence totale.
+          Garage automobile à Metz-Tessy près d’Annecy, spécialisé en entretien,
+          diagnostic et réparation de véhicules toutes marques. Service de
+          proximité et transparence garantie.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -251,6 +400,10 @@
           </a>
         </div>
       </div>
+
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="scroll-line"></div>
+      </div>
     </section>
 
     <section id="services" class="py-24 px-6 bg-darkBg">
@@ -264,119 +417,97 @@
           <div class="w-20 h-1 bg-cyanAccent"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
-          >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
+              class="glass-panel p-8 glass-card reveal group transition-all duration-500"
             >
-              01 / TECH
+              <div
+                class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
+              >
+                01 / DIAGNOSTIC
+              </div>
+              <h3 class="text-xl font-heading font-bold mb-4 uppercase">
+                DIAGNOSTIC & ÉLECTRONIQUE
+              </h3>
+              <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                Analyse complète avec outils de pointe, test de batterie et
+                calibration des systèmes embarqués pour <br />détecter toute
+                anomalie.
+              </p>
+              <div
+                class="card-line h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
+              ></div>
             </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Diagnostic Moteur
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Analyse complète via des outils de pointe pour identifier chaque
-              anomalie électronique ou mécanique.
-            </p>
             <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
-            ></div>
+              class="glass-panel p-8 glass-card reveal group transition-all duration-500"
+            >
+              <div
+                class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
+              >
+                02 / ENTRETIEN
+              </div>
+              <h3 class="text-xl font-heading font-bold mb-4 uppercase">
+                ENTRETIEN & VIDANGE
+              </h3>
+              <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                Révisions périodiques et remplacement des fluides <br />avec
+                lubrifiants certifiés pour <br />garantir performance <br />et
+                longévité.
+              </p>
+              <div
+                class="card-line h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
+              ></div>
+            </div>
+            <div
+              class="glass-panel p-8 glass-card reveal group transition-all duration-500"
+            >
+              <div
+                class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
+              >
+                03 / SÉCURITÉ
+              </div>
+              <h3 class="text-xl font-heading font-bold mb-4 uppercase">
+                FREINAGE & SÉCURITÉ
+              </h3>
+              <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                Contrôle, remplacement des disques et plaquettes pour une
+                conduite fiable et sécurisée.
+              </p>
+              <div
+                class="card-line h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
+              ></div>
+            </div>
+            <div
+              class="glass-panel p-8 glass-card reveal group transition-all duration-500"
+            >
+              <div
+                class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
+              >
+                04 / CONFORT
+              </div>
+              <h3 class="text-xl font-heading font-bold mb-4 uppercase">
+                CONFORT & CLIMATISATION
+              </h3>
+              <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                Entretien et recharge du système pour un confort optimal en
+                toute saison.
+              </p>
+              <div
+                class="card-line h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
+              ></div>
+            </div>
           </div>
           <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
+            class="relative overflow-hidden rounded-lg group h-full min-h-[400px]"
           >
+            <img
+              src="images/pexels-svjae-4756887.jpg"
+              alt="Garage"
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 reveal"
+            />
             <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
-            >
-              02 / FLUIDS
-            </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Vidange Expert
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Utilisation de lubrifiants certifiés constructeurs pour maximiser
-              la longévité de votre motorisation.
-            </p>
-            <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
-            ></div>
-          </div>
-          <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
-          >
-            <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
-            >
-              03 / SAFETY
-            </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Système de Freinage
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Contrôle et remplacement des disques et plaquettes pour une
-              sécurité de conduite absolue.
-            </p>
-            <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
-            ></div>
-          </div>
-          <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
-          >
-            <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
-            >
-              04 / CLIMATE
-            </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Climatisation
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Entretien et recharge du circuit de climatisation pour un confort
-              optimal en toute saison.
-            </p>
-            <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
-            ></div>
-          </div>
-          <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
-          >
-            <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
-            >
-              05 / POWER
-            </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Batterie & Élec
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Test de charge et remplacement de batterie avec calibration des
-              systèmes de bord.
-            </p>
-            <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
-            ></div>
-          </div>
-          <div
-            class="glass-panel p-8 glass-card reveal group transition-all duration-500"
-          >
-            <div
-              class="text-cyanAccent font-heading text-xs tracking-widest mb-6 opacity-60"
-            >
-              06 / MAINTENANCE
-            </div>
-            <h3 class="text-xl font-heading font-bold mb-4 uppercase">
-              Entretien Général
-            </h3>
-            <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
-              Révisions périodiques respectant strictement le carnet d'entretien
-              constructeur.
-            </p>
-            <div
-              class="h-1 w-0 bg-cyanAccent group-hover:w-full transition-all duration-700"
+              class="absolute inset-0 bg-darkBg/20 group-hover:bg-transparent transition-all duration-500"
             ></div>
           </div>
         </div>
@@ -402,16 +533,23 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >01</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Service
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">Vidange + <br />Filtre</h3>
             <div class="text-4xl font-black text-white mb-6">
               80<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>
+              <li class="fade-text">
                 Inclut l’huile moteur, le filtre à huile et un contrôle de base
                 du véhicule.
               </li>
@@ -420,16 +558,24 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >02</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Scan
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
+
             <h3 class="text-lg font-heading mb-4">Diagnostic électronique</h3>
             <div class="text-4xl font-black text-white mb-6">
               30<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>
+              <li class="fade-text">
                 Lecture des codes défauts avec valise pour identifier les
                 pannes.
               </li>
@@ -438,16 +584,23 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >03</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Brakes
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">Plaquettes <br />de frein</h3>
             <div class="text-4xl font-black text-white mb-6">
               150<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>
+              <li class="fade-text">
                 Remplacement des plaquettes avant ou arrière selon le véhicule.
               </li>
             </ul>
@@ -455,10 +608,17 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >04</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Brakes+
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">
               Disques + plaquettes de frein
             </h3>
@@ -466,37 +626,53 @@
               300<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>Remplacement complet du système de freinage.</li>
+              <li class="fade-text">
+                Remplacement complet du système de freinage.
+              </li>
             </ul>
           </div>
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >05</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Battery
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">Remplacement de batterie</h3>
             <div class="text-4xl font-black text-white mb-6">
               70<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>Fourniture + pose + test de charge.</li>
+              <li class="fade-text">Fourniture + pose + test de charge.</li>
             </ul>
           </div>
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >06</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Timing
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">Courroie de distribution</h3>
             <div class="text-4xl font-black text-white mb-6">
               400<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>
+              <li class="fade-text">
                 Intervention essentielle pour éviter des pannes moteur graves.
               </li>
             </ul>
@@ -504,10 +680,17 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >07</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Full Check
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">
               Révision complète (entretien annuel)
             </h3>
@@ -515,7 +698,7 @@
               150<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>
+              <li class="fade-text">
                 Vidange, filtres, niveaux et contrôle général du véhicule.
               </li>
             </ul>
@@ -523,16 +706,25 @@
           <div
             class="glass-panel p-10 flex flex-col items-center text-center glass-card reveal transition-all duration-500 transform hover:-translate-y-3"
           >
-            <span
-              class="text-cyanAccent font-heading text-xs mb-6 tracking-widest uppercase"
-              >08</span
-            >
+            <div class="mb-6 flex flex-col items-center">
+              <span
+                class="text-cyanAccent font-heading text-xs tracking-widest uppercase"
+              >
+                Suspension
+              </span>
+
+              <div
+                class="price-line mt-2 h-[2px] w-0 bg-cyanAccent transition-all duration-700"
+              ></div>
+            </div>
             <h3 class="text-lg font-heading mb-4">Amortisseurs / suspension</h3>
             <div class="text-4xl font-black text-white mb-6">
               150<span class="text-lg font-normal">€</span>
             </div>
             <ul class="text-slate-500 text-sm space-y-3 mb-8">
-              <li>Remplacement des amortisseurs ou éléments de suspension.</li>
+              <li class="fade-text">
+                Remplacement des amortisseurs ou éléments de suspension.
+              </li>
             </ul>
           </div>
         </div>
@@ -550,29 +742,31 @@
             Notre <span class="text-cyanAccent">Engagement</span>
           </h2>
           <p class="text-slate-400 text-lg leading-relaxed font-light mb-6">
-            Situé à Metz-Tessy, notre garage combine artisanat traditionnel et
-            technologies de pointe. Notre mission est simple : offrir un service
-            local de proximité avec les standards de qualité des plus grandes
-            enseignes.
+            Situé à <span class="text-cyanAccent">Metz-Tessy</span> près
+            d’Annecy, notre garage automobile combine savoir-faire mécanique et
+            technologies de diagnostic modernes. Nous assurons l’entretien, la
+            réparation et le suivi de véhicules toutes marques avec un service
+            local de confiance et des standards de qualité élevés.
           </p>
           <div class="p-6 border-l-4 border-cyanAccent bg-cyanAccent/5">
-            <p class="text-white font-semibold italic text-lg">
-              "Notre objectif est simple : que vous puissiez nous confier votre
-              véhicule en toute confiance."
-            </p>
+            <p
+              id="quote-typewriter"
+              class="text-white font-semibold italic text-lg"
+            ></p>
           </div>
           <p class="text-slate-400 mt-6 leading-relaxed font-light">
-            Chaque intervention est expliquée en détail. Nous ne remplaçons que
-            ce qui est nécessaire, garantissant ainsi le meilleur rapport
-            qualité-prix pour l'entretien de votre voiture.
+            Chaque intervention mécanique est expliquée en détail avant toute
+            réparation. Nous réalisons uniquement les travaux nécessaires afin
+            de garantir le meilleur rapport qualité-prix pour l’entretien et la
+            réparation de votre voiture.
           </p>
         </div>
         <div class="lg:w-1/2 w-full reveal">
-          <div class="relative overflow-hidden group rounded-sm shadow-2xl">
+          <div class="relative overflow-hidden group rounded-lg shadow-2xl">
             <img
               src="images/car engine.jpg"
               alt="Moteur de voiture"
-              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 reveal"
             />
             <div
               class="absolute inset-0 bg-darkBg/20 group-hover:bg-transparent transition-all duration-500"
@@ -591,7 +785,7 @@
         </div>
 
         <div class="space-y-4">
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
@@ -605,13 +799,14 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Nous travaillons sur toutes les marques et tous les modèles de
-                véhicules légers, qu'il s'agisse de motorisations essence,
-                diesel ou hybrides.
+                Nous assurons l’entretien et la réparation de véhicules toutes
+                marques à Metz-Tessy, près d’Annecy. Notre garage intervient sur
+                les voitures essence, diesel et hybrides, ainsi que sur la
+                majorité des véhicules légers.
               </div>
             </div>
           </div>
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
@@ -625,13 +820,14 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Il est conseillé de prendre rendez-vous pour les interventions
-                lourdes, mais nous accueillons les diagnostics rapides et
-                urgences sans rendez-vous selon disponibilité.
+                Il est recommandé de prendre rendez-vous pour les réparations
+                importantes et les révisions complètes. Toutefois, nous
+                accueillons les diagnostics automobiles rapides et les urgences
+                sans rendez-vous selon disponibilité.
               </div>
             </div>
           </div>
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
@@ -645,13 +841,14 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Une révision complète prend généralement entre 1h30 et 3h selon
-                les points de contrôle et les remplacements de filtres
-                nécessaires.
+                La durée d’une révision dépend du modèle du véhicule et des
+                opérations nécessaires. En général, une révision complète prend
+                entre 1h30 et 3h, incluant les contrôles de sécurité et le
+                remplacement des filtres si nécessaire.
               </div>
             </div>
           </div>
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
@@ -665,17 +862,18 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Oui, nous proposons des solutions de paiement échelonné pour les
-                réparations importantes. Contactez-nous pour en savoir plus.
+                Oui, nous proposons des solutions de paiement échelonné pour
+                certaines réparations importantes. N’hésitez pas à nous
+                contacter pour connaître les modalités disponibles.
               </div>
             </div>
           </div>
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
               <span class="font-heading text-sm uppercase tracking-widest"
-                >Quels services proposez-vous ?</span
+                >Quels services propose votre garage automobile ?</span
               >
               <span
                 class="text-cyanAccent text-2xl transition-transform duration-300"
@@ -684,13 +882,15 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Nous proposons une large gamme de services automobiles :
-                vidange, freinage, diagnostic moteur, suspension, remplacement
-                de batterie, pneus, et entretien général du véhicule.
+                Notre garage à Metz-Tessy propose une large gamme de services
+                automobiles : vidange moteur, entretien courant, freinage,
+                diagnostic électronique, remplacement de batterie, pneus,
+                suspension, climatisation et réparation mécanique toutes
+                marques.
               </div>
             </div>
           </div>
-          <div class="glass-panel reveal group">
+          <div class="glass-panel faq-item group">
             <button
               class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
             >
@@ -704,9 +904,52 @@
             </button>
             <div class="faq-content">
               <div class="px-6 pb-6 text-slate-400 text-sm font-light">
-                Vous pouvez prendre rendez-vous par téléphone, e-mail ou
-                directement en vous rendant à notre garage pendant les heures
-                d’ouverture.
+                Vous pouvez prendre rendez-vous par téléphone, par e-mail ou
+                directement à notre garage pendant les horaires d’ouverture.
+                Notre équipe reste disponible pour répondre rapidement à vos
+                demandes.
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel faq-item group">
+            <button
+              class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
+            >
+              <span class="font-heading text-sm uppercase tracking-widest"
+                >Réalisez-vous les diagnostics électroniques ?</span
+              >
+              <span
+                class="text-cyanAccent text-2xl transition-transform duration-300"
+                >+</span
+              >
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-6 text-slate-400 text-sm font-light">
+                Oui, nous réalisons les diagnostics électroniques et la
+                recherche de panne pour les véhicules toutes marques grâce à des
+                outils de diagnostic modernes.
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-panel faq-item group">
+            <button
+              class="faq-btn w-full p-6 text-left flex justify-between items-center focus:outline-none"
+            >
+              <span class="font-heading text-sm uppercase tracking-widest"
+                >Intervenez-vous sur les véhicules hybrides ?</span
+              >
+              <span
+                class="text-cyanAccent text-2xl transition-transform duration-300"
+                >+</span
+              >
+            </button>
+            <div class="faq-content">
+              <div class="px-6 pb-6 text-slate-400 text-sm font-light">
+                Oui, nous prenons en charge l’entretien et certaines réparations
+                sur les véhicules hybrides selon le modèle et les besoins
+                techniques.
               </div>
             </div>
           </div>
@@ -725,34 +968,36 @@
           <div class="w-20 h-1 bg-cyanAccent"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal">
           <div class="glass-panel p-10 reveal">
             <h3 class="font-heading text-xl mb-6 uppercase">
               Prendre Rendez-vous
             </h3>
             <p class="text-slate-400 font-light mb-10 leading-relaxed">
-              Contactez-nous pour toute information ou demande de rendez-vous.
-              Notre équipe est réactive et prête à vous assister pour maintenir
-              votre véhicule en parfait état. <br /><br />
+              Contactez notre garage à Metz-Tessy pour toute demande de
+              rendez-vous, diagnostic automobile, entretien courant ou
+              réparation mécanique. Notre équipe intervient rapidement pour
+              maintenir votre véhicule en parfait état. <br /><br />
+              Diagnostics automobiles d’urgence
               <span class="text-cyanAccent font-bold uppercase tracking-widest"
-                >Sans rendez-vous</span
+                >sans rendez-vous</span
               >
-              pour les diagnostics d'urgence.
+              selon disponibilité.
             </p>
 
             <div class="space-y-6">
               <div
-                class="flex items-center space-x-6 p-4 border border-white/5 hover:border-cyanAccent/40 transition-colors group"
+                class="contact-item flex items-center space-x-6 p-4 border border-white/5 transition-all duration-500 relative overflow-hidden"
               >
                 <div
                   class="text-cyanAccent font-heading text-sm tracking-tighter"
                 >
                   TEL
                 </div>
-                <div class="text-white font-medium">+33 6 12 34 56 78</div>
+                <div class="text-white font-medium">+33 7 53 31 03 45</div>
               </div>
-              <div
-                class="flex items-center space-x-6 p-4 border border-white/5 hover:border-cyanAccent/40 transition-colors group"
+              <!-- <div
+                class="contact-item flex items-center space-x-6 p-4 border border-white/5 transition-all duration-500 relative overflow-hidden"
               >
                 <div
                   class="text-cyanAccent font-heading text-sm tracking-tighter"
@@ -760,11 +1005,11 @@
                   EMAIL
                 </div>
                 <div class="text-white font-medium">
-                  contact@metz-tessy-garage.fr
+                  <p id="email"></p>
                 </div>
-              </div>
+              </div> -->
               <div
-                class="flex items-center space-x-6 p-4 border border-white/5 hover:border-cyanAccent/40 transition-colors group"
+                class="contact-item flex items-center space-x-6 p-4 border border-white/5 transition-all duration-500 relative overflow-hidden"
               >
                 <div
                   class="text-cyanAccent font-heading text-sm tracking-tighter"
@@ -772,11 +1017,11 @@
                   MAP
                 </div>
                 <div class="text-white font-medium">
-                  Metz-Tessy, 74370 Epagny Metz-Tessy, France
+                  22 Imp. du Bois, 74330 Epagny Metz-Tessy, France
                 </div>
               </div>
               <div
-                class="flex items-center space-x-6 p-4 border border-white/5 hover:border-cyanAccent/40 transition-colors group"
+                class="contact-item flex items-center space-x-6 p-4 border border-white/5 transition-all duration-500 relative overflow-hidden"
               >
                 <div
                   class="text-cyanAccent font-heading text-sm tracking-tighter"
@@ -784,18 +1029,22 @@
                   OPEN
                 </div>
                 <div class="text-white font-medium">
-                  Lundi – Samedi 08:00 – 18:00
+                  Lundi – Vendredi: 08:00 – 12:00 / 14:00 – 18:00 <br />Samedi:
+                  09:00 – 12:00
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="relative overflow-hidden group rounded-sm shadow-2xl">
+          <div class="relative overflow-hidden group rounded-lg shadow-2xl">
             <img
               src="images/tools.jpg"
               alt="Moteur de voiture"
-              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 reveal"
             />
+            <div
+              class="absolute inset-0 bg-darkBg/20 group-hover:bg-transparent transition-all duration-500"
+            ></div>
           </div>
         </div>
       </div>
@@ -808,52 +1057,63 @@
     </footer>
 
     <script>
-      // 1. Hero Fade-In on Load
-      window.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          document.getElementById("hero-content").style.opacity = "1";
-          document.getElementById("hero-content").style.transition =
-            "opacity 1.5s ease-out";
-        }, 300);
+      window.addEventListener("load", () => {
+        const navbarEl = document.getElementById("navbar");
+        const hero = document.getElementById("hero-content");
+
+        hero.style.opacity = "1";
+        hero.style.transition = "opacity 1.2s ease-out";
+
+        navbarEl.style.transition = "opacity 1.2s ease-out";
+        navbarEl.style.opacity = "1";
       });
 
-      // 2. Custom Cursor Logic
-      // const dot = document.getElementById("cursor-dot");
-      // const glow = document.getElementById("cursor-glow");
+      /* =======================
+   REVEAL OBSERVER
+======================= */
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
 
-      // window.addEventListener("mousemove", (e) => {
-      //   const posX = e.clientX;
-      //   const posY = e.clientY;
+      document.querySelectorAll(".reveal").forEach((el) => {
+        revealObserver.observe(el);
+      });
 
-      //   dot.style.left = `${posX}px`;
-      //   dot.style.top = `${posY}px`;
+      /* =======================
+   LINE OBSERVER
+======================= */
+      const lines = document.querySelectorAll(".card-line");
 
-      //   glow.style.left = `${posX}px`;
-      //   glow.style.top = `${posY}px`;
-      // });
+      const lineObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("scroll-active");
+              lineObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 },
+      );
 
-      // 3. Scroll Reveal (IntersectionObserver)
-      const observerOptions = { threshold: 0.1 };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      }, observerOptions);
+      lines.forEach((line) => lineObserver.observe(line));
 
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
-
-      // 4. Navbar Logic (Glass & ScrollSpy)
+      /* =======================
+   NAVBAR SCROLL
+======================= */
       const navbar = document.getElementById("navbar");
       const marker = document.getElementById("nav-marker");
       const navLinks = document.querySelectorAll(".nav-link");
       const sections = document.querySelectorAll("section");
 
       window.addEventListener("scroll", () => {
-        // Background blur effect
         if (window.scrollY > 50) {
           navbar.classList.add("glass-panel", "py-4");
           navbar.classList.remove("py-6");
@@ -862,7 +1122,6 @@
           navbar.classList.add("py-6");
         }
 
-        // ScrollSpy
         let current = "";
         sections.forEach((section) => {
           const sectionTop = section.offsetTop;
@@ -875,71 +1134,240 @@
           link.classList.remove("text-cyanAccent");
           if (link.getAttribute("href").includes(current)) {
             link.classList.add("text-cyanAccent");
-            // Update Underline Marker
             marker.style.width = `${link.offsetWidth}px`;
             marker.style.left = `${link.offsetLeft - 33}px`;
           }
         });
       });
 
-      // 5. Mobile Menu Toggle
+      /* =======================
+   MOBILE MENU
+======================= */
       const menuBtn = document.getElementById("menu-btn");
       const overlay = document.getElementById("mobile-overlay");
       let menuOpen = false;
 
       menuBtn.addEventListener("click", () => {
         menuOpen = !menuOpen;
+
         overlay.classList.toggle("translate-x-full");
         document.body.classList.toggle("overflow-hidden");
-        const spans = menuBtn.querySelectorAll("span");
-        if (menuOpen) {
-          spans[0].classList.add("rotate-45", "translate-y-2");
-          spans[1].classList.add("-rotate-45", "-translate-y-0.5");
-        } else {
-          spans[0].classList.remove("rotate-45", "translate-y-2");
-          spans[1].classList.remove("-rotate-45", "-translate-y-0.5");
-        }
+
+        menuBtn.classList.toggle("open");
       });
 
+      /* close on link click */
       document.querySelectorAll(".mobile-link").forEach((link) => {
         link.addEventListener("click", () => {
           overlay.classList.add("translate-x-full");
           document.body.classList.remove("overflow-hidden");
-          menuOpen = false;
 
-          // ✅ FIX: reset hamburger icon
-          const spans = menuBtn.querySelectorAll("span");
-          spans[0].classList.remove("rotate-45", "translate-y-2");
-          spans[1].classList.remove("-rotate-45", "-translate-y-0.5");
+          menuOpen = false;
+          menuBtn.classList.remove("open");
         });
       });
 
-      // 6. FAQ Accordion Logic
+      /* close on outside click */
+      overlay.addEventListener("click", (e) => {
+        if (!e.target.closest(".mobile-link")) {
+          overlay.classList.add("translate-x-full");
+          document.body.classList.remove("overflow-hidden");
+
+          menuOpen = false;
+          menuBtn.classList.remove("open");
+        }
+      });
+      /* =======================
+   FAQ
+======================= */
       const faqBtns = document.querySelectorAll(".faq-btn");
+
       faqBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           const content = btn.nextElementSibling;
           const plus = btn.querySelector("span:last-child");
+          const parent = btn.parentElement;
 
-          // Close others
           faqBtns.forEach((otherBtn) => {
             if (otherBtn !== btn) {
               otherBtn.nextElementSibling.style.maxHeight = null;
               otherBtn.querySelector("span:last-child").style.transform =
                 "rotate(0deg)";
+              otherBtn.parentElement.classList.remove("faq-active");
             }
           });
 
-          // Toggle current
           if (content.style.maxHeight) {
             content.style.maxHeight = null;
             plus.style.transform = "rotate(0deg)";
+            parent.classList.remove("faq-active");
           } else {
             content.style.maxHeight = content.scrollHeight + "px";
             plus.style.transform = "rotate(45deg)";
+            parent.classList.add("faq-active");
           }
         });
       });
+
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      const faqObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("active");
+              }, index * 120);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      faqItems.forEach((item) => {
+        faqObserver.observe(item);
+      });
+
+      /* =======================
+   TYPEWRITER
+======================= */
+      const words = [
+        "automobile",
+        "moteur",
+        "carrosserie",
+        "panne",
+        "réparation",
+        "entretien",
+      ];
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      const typedText = document.getElementById("typed-text");
+
+      function typeEffect() {
+        const currentWord = words[wordIndex];
+
+        charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+
+        typedText.textContent = currentWord.substring(0, charIndex);
+
+        let speed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          speed = 1200;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          speed = 300;
+        }
+
+        setTimeout(typeEffect, speed);
+      }
+
+      window.addEventListener("load", () => {
+        setTimeout(typeEffect, 800);
+      });
+
+      /* =======================
+   FADE TEXT OBSERVER
+======================= */
+      const fadeElements = document.querySelectorAll(".reveal, .fade-text");
+
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      fadeElements.forEach((el) => fadeObserver.observe(el));
+
+      const priceLines = document.querySelectorAll(".price-line");
+
+      const priceLineObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.width = "80px";
+              priceLineObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      priceLines.forEach((line) => {
+        priceLineObserver.observe(line);
+      });
+
+      const quote = `"Notre objectif est simple : que vous puissiez nous confier votre véhicule en toute confiance."`;
+
+      const quoteElement = document.getElementById("quote-typewriter");
+
+      let quoteIndex = 0;
+
+      function typeQuote() {
+        if (quoteIndex < quote.length) {
+          quoteElement.textContent += quote.charAt(quoteIndex);
+          quoteIndex++;
+          setTimeout(typeQuote, 35);
+        }
+      }
+
+      const quoteObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              typeQuote();
+              quoteObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 },
+      );
+      quoteObserver.observe(quoteElement);
+
+      const contactItems = document.querySelectorAll(".contact-item");
+
+      const contactObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = [...contactItems].indexOf(entry.target) * 150;
+
+              setTimeout(() => {
+                entry.target.classList.add("active");
+              }, delay);
+
+              contactObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      contactItems.forEach((item) => {
+        contactObserver.observe(item);
+      });
+
+      // const user = "egaragyssetzt em"
+      //   .replace(" ", "")
+      //   .split("")
+      //   .reverse()
+      //   .join("");
+      // const domain = "liamg".split("").reverse().join("");
+      // const tld = "moc".split("").reverse().join("");
+
+      // document.getElementById("email").innerHTML =
+      //   `${user}<span>@</span><span style="display:none">bottrap</span>${domain}<span>.</span>${tld}`;
     </script>
   </body>
 </html>
